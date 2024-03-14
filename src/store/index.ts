@@ -1,4 +1,4 @@
-import { atom, selector } from "recoil";
+import { RecoilState, atom, selector } from "recoil";
 
 const countState = atom({
   key: "countState",
@@ -13,4 +13,9 @@ const charCountState = selector({
   },
 });
 
-export { countState, charCountState };
+const todoListState: RecoilState<any> = atom({
+  key: "todoListState",
+  default: [],
+});
+
+export { countState, charCountState, todoListState };
