@@ -10,7 +10,7 @@ export default function HotDog(props: Props) {
     <img
       onClick={onClick}
       src="images/hotdog.png"
-      className={`${className} cursor-pointe w-[16vw] min-w-[150px] transition-all duration-700 ease-in-out`}
+      className={`${className} w-[16vw] min-w-[150px] cursor-pointer transition-all duration-700 ease-in-out`}
       alt="핫도그"
     />
   );
