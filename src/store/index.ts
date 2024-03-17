@@ -1,4 +1,5 @@
 import { RecoilState, atom, selector } from "recoil";
+import * as Type from "store/interface";
 
 const countState = atom({
   key: "countState",
@@ -18,4 +19,32 @@ const todoListState: RecoilState<any> = atom({
   default: [],
 });
 
-export { countState, charCountState, todoListState };
+const todoListFilterState = atom({
+  key: "todoListFilterState",
+  default: "all",
+});
+
+const filteredTodoListState = selector({
+  key: "filteredTodoListState",
+  get: ({ get }) => {
+    const list = get(todoListState);
+    const filter = get(todoListFilterState);
+
+    switch (filter) {
+      case "completed":
+        return list.filter((item: Type.TodoItem) => item.isComplete);
+      case "uncompleted":
+        return list.filter((item: Type.TodoItem) => !item.isComplete);
+      default:
+        return list;
+    }
+  },
+});
+
+export {
+  countState,
+  charCountState,
+  todoListState,
+  todoListFilterState,
+  filteredTodoListState,
+};
