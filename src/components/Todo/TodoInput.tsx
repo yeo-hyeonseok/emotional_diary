@@ -35,9 +35,9 @@ export default function TodoInput(props: Props) {
       <input
         onChange={(e) => setInput(e.target.value)}
         value={input}
-        autoFocus
-        className="w-full rounded-xl bg-gray-200 bg-opacity-50 px-4 text-lg"
+        className="w-full rounded-xl bg-gray-200 bg-opacity-50 px-4 placeholder:text-white"
         type="text"
+        placeholder="enter the text..."
       />
       <Recoil onClick={addItem} size="md" />
     </div>

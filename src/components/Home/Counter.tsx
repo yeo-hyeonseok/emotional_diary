@@ -8,7 +8,7 @@ export default function Counter(props: Props) {
 
   return (
     <div
-      className={`${className} flex select-none flex-col items-center justify-center gap-1 text-white`}
+      className={`${className} flex select-none flex-col items-center justify-center gap-1`}
     >
       <span className="text-7xl">{count}</span>
     </div>
