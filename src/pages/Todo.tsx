@@ -6,6 +6,7 @@ import * as Type from "store/interface";
 import Recoil from "components/Common/Recoil";
 import Box from "components/Common/Box";
 import HotDog from "components/Common/HotDog";
+import TodoStats from "components/Todo/TodoStats";
 import TodoFilter from "components/Todo/TodoFilter";
 import TodoItem from "components/Todo/TodoItem";
 import TodoInput from "components/Todo/TodoInput";
@@ -24,13 +25,9 @@ export default function Todo() {
   const [isActive, setIsActive] = useState(false);
 
   return (
-    <div className="flex min-h-0 w-full flex-1 flex-col items-center justify-between px-4 py-6">
-      <Recoil
-        onClick={() => {
-          setIsActive(!isActive);
-        }}
-        size="lg"
-      />
+    <div className="flex min-h-0 w-full flex-1 flex-col items-center justify-between p-4">
+      <Recoil onClick={() => setIsActive(!isActive)} size="lg" />
+      <TodoStats className="mb-2 mt-4" />
       <div className="mb-4 mt-1 flex min-h-0 w-full flex-1 flex-col items-end">
         <TodoFilter className="mb-2" />
         <Box className="flex w-full flex-1 flex-col gap-2 overflow-y-auto">

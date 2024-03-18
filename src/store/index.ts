@@ -41,10 +41,34 @@ const filteredTodoListState = selector({
   },
 });
 
+// 통계 관련 selector 생성하기
+const todoListStatsState = selector({
+  key: "todoListStatsState",
+  get: ({ get }) => {
+    const list = get(todoListState);
+
+    const total = list.length;
+    const totalComplete = list.filter(
+      (item: Type.TodoItem) => item.isComplete,
+    ).length;
+    const totalUncomplete = total - totalComplete;
+    const ratio =
+      list.length === 0 ? 0 : Math.floor((totalComplete / total) * 100);
+
+    return {
+      total,
+      totalComplete,
+      totalUncomplete,
+      ratio,
+    };
+  },
+});
+
 export {
   countState,
   charCountState,
   todoListState,
   todoListFilterState,
   filteredTodoListState,
+  todoListStatsState,
 };

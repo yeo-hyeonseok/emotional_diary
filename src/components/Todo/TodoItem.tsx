@@ -36,7 +36,7 @@ export default function TodoItem(props: Props) {
   };
 
   return (
-    <div className={`${className} relative flex w-full gap-3`}>
+    <div className={`${className} relative flex w-full gap-2`}>
       <input
         value={data.text}
         onChange={editItem}
