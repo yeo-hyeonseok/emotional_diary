@@ -41,7 +41,6 @@ const filteredTodoListState = selector({
   },
 });
 
-// 통계 관련 selector 생성하기
 const todoListStatsState = selector({
   key: "todoListStatsState",
   get: ({ get }) => {
@@ -64,6 +63,24 @@ const todoListStatsState = selector({
   },
 });
 
+const userIdState = atom({
+  key: "userIdState",
+  default: 1,
+});
+
+const userInfoState = selector({
+  key: "userInfoState",
+  get: async ({ get }) => {
+    const userId = get(userIdState);
+
+    const userInfo = await fetch(
+      `https://jsonplaceholder.typicode.com/todos/${userId}`,
+    ).then((response) => response.json());
+
+    return userInfo;
+  },
+});
+
 export {
   countState,
   charCountState,
@@ -71,4 +88,6 @@ export {
   todoListFilterState,
   filteredTodoListState,
   todoListStatsState,
+  userIdState,
+  userInfoState,
 };

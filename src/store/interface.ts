@@ -3,3 +3,10 @@ export interface TodoItem {
   text: string;
   isComplete: boolean;
 }
+
+export interface UserInfo {
+  id: number;
+  userId: number;
+  title: string;
+  completed: boolean;
+}

@@ -11,9 +11,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <RecoilRoot>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <React.Suspense fallback={<div className="text-black">Loading...</div>}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </React.Suspense>
     </RecoilRoot>
   </React.StrictMode>,
 );

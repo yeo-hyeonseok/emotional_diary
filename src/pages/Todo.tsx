@@ -45,7 +45,7 @@ export default function Todo() {
       <TodoInput />
       <HotDog
         onClick={() => {
-          navigate("/");
+          navigate("/user");
           setIsActive(false);
         }}
         className={`${isActive ? "bottom-0" : "-bottom-full"} fixed left-4`}
