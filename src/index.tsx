@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import { RecoilRoot } from "recoil";
 import { BrowserRouter } from "react-router-dom";
+import Loader from "components/Common/Loader";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -11,7 +12,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <RecoilRoot>
-      <React.Suspense fallback={<div className="text-black">Loading...</div>}>
+      <React.Suspense fallback={<Loader />}>
         <BrowserRouter>
           <App />
         </BrowserRouter>
